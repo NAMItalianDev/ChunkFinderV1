@@ -25,9 +25,10 @@ jobs:
 
       - name: Compila il mod
         run: gradle build
+        working-directory: chunk-tracer
 
       - name: Carica il jar compilato
         uses: actions/upload-artifact@v4
         with:
           name: chunk-tracer-jar
-          path: build/libs/*.jar
+          path: chunk-tracer/build/libs/*.jar
