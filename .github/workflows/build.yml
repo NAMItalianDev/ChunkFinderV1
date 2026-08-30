@@ -21,7 +21,7 @@ jobs:
       - name: Installa Gradle 9.4
         uses: gradle/actions/setup-gradle@v4
         with:
-          gradle-version: '9.4'
+          gradle-version: '9.4.0'
 
       - name: Compila il mod
         run: gradle build
