@@ -18,10 +18,10 @@ jobs:
           distribution: 'temurin'
           java-version: '25'
 
-      - name: Installa Gradle 9.4
+      - name: Installa Gradle 9.7.1
         uses: gradle/actions/setup-gradle@v4
         with:
-          gradle-version: '9.4.0'
+          gradle-version: '9.7.1'
 
       - name: Compila il mod
         run: gradle build
