@@ -45,7 +45,7 @@ public class ChunkTracer implements ModInitializer {
     public void onInitialize() {
         saveFile = FabricLoader.getInstance().getConfigDir().resolve("chunktracer").resolve("heatmap.txt");
 
-        PayloadTypeRegistry.playS2C().register(ChunkHeatSyncPayload.TYPE, ChunkHeatSyncPayload.STREAM_CODEC);
+        PayloadTypeRegistry.clientboundPlay().register(ChunkHeatSyncPayload.TYPE, ChunkHeatSyncPayload.STREAM_CODEC);
 
         ServerLifecycleEvents.SERVER_STARTED.register(server -> HEAT_DATA.load(saveFile));
         ServerLifecycleEvents.SERVER_STOPPING.register(server -> HEAT_DATA.save(saveFile));
@@ -63,7 +63,7 @@ public class ChunkTracer implements ModInitializer {
                 Vec3 pos = player.position();
                 int chunkX = (int) Math.floor(pos.x() / 16.0);
                 int chunkZ = (int) Math.floor(pos.z() / 16.0);
-                String dimensionId = player.level().dimension().location().toString();
+                String dimensionId = player.level().dimension().toString();
 
                 HEAT_DATA.recordVisit(dimensionId, chunkX, chunkZ);
 
